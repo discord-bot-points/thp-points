@@ -1,10 +1,17 @@
 # Turborepo starter
 
-attention a votre version de pnpm
-créer le .env a la racine du dossier bot ainsi que le dossier dashboard et ajouter les variables
+ **attention a votre version de pnpm**
+- créer le .env a la racine du dossier bot ainsi que le dossier dashboard et ajouter les variables
+
+```
 pnpm i 
+```
+```
 npx prisma migrate dev --schema=./packages/prisma/schema.prisma 
+```
+```
 pnpm dev 
+```
 et c'est parti !!
 
 
