@@ -48,42 +48,61 @@ Assurez-vous d'avoir les éléments suivants installés :
     ```bash
     npm i
     ```
-    **ou**
+    *ou*
     ```bash
     pnpm i
     ```
     
-3. **Lancement du serveur** :
+3. **Créer le fichier .env** :
+
+    Créer un fichier .env qui reprend les variables du fichier .env.example en remplaçant les exemples par vos propres variables.
+
+4. **Lancer la seed pour créer votre base de données** :
+
+    ```bash
+    npx prisma migrate dev
+    ```
+    *ou*
+    ```bash
+    pnpm dlx prisma migrate dev
+    ```
+
+    **et ensuite**
+
+    ```bash
+    pnpm run seed
+    ```
+
+5. **Lancement du serveur** :
     ```bash
     npm run dev
     ```
-    **ou**
+    *ou*
     ```bash
     pnpm run dev
     ```
 
-## Commandes
 
-- **Help**
-  
-`/help` vous permet d'accèder à la rubrique d'aide.
-- **Balance**
-  
-`/balance` vous permet d'afficher votre solde de points THP.
+## Documentations des commandes :
 
-`/balance user` vous permet d'afficher le solde de points d'un autre membre.
-- **Send**
+- [**Help**](https://github.com/discord-bot-points/Points-Discord/blob/main/src/Commands/Docs/help.md)
   
-`/send` vous permet d'envoyer des points à un membre :
-  - User : champ obligatoire
-  - Points : champ obligatoire
-  - Domain : champ obligatoire
-  - Description : champ facultatif
-  - Link : champ facultatif
+- [**Balance**](https://github.com/discord-bot-points/Points-Discord/blob/main/src/Commands/Docs/balance.md)
+  
+- [**Send**](https://github.com/discord-bot-points/Points-Discord/blob/main/src/Commands/Docs/send.md)
+
+- [**Generate**](https://github.com/discord-bot-points/Points-Discord/blob/main/src/Commands/Docs/generate.md)
+
+- [**Leaderboard**](https://github.com/discord-bot-points/Points-Discord/blob/main/src/Commands/Docs/leaderboard.md)
+
+- [**Public Leaderboard**](https://github.com/discord-bot-points/Points-Discord/blob/main/src/Commands/Docs/publicLeaderboard.md)
 
 ## Contributeurs :
 Merci à tous ceux qui ont contribué à ce projet !
-- [@Alexia Scherer](https://github.com/evarellapucky)
-- [@Yann Rezigui](https://github.com/YannRZG)
-- [@Raphaël Marcarini](https://github.com/Marcaraph)
-- [@Jeremie Olivier](https://github.com/jeremie-olivier)
+- [Alexia Scherer](https://github.com/evarellapucky)
+- [Yann Rezigui](https://github.com/YannRZG)
+- [Raphaël Marcarini](https://github.com/Marcaraph)
+- [Jeremie Olivier](https://github.com/jeremie-olivier)
+- [Malo Bastianelli](https://github.com/Korblen)
+- [Tommy Pellerin](https://github.com/tommy-pellerin)
+- [Sasha Godel](https://github.com/MacDuPain)
