@@ -1,0 +1,52 @@
+# Voir https://help.github.com/articles/ignoring-files/ pour plus d'informations sur l'ignorance de fichiers.
+
+apps/dashboard/node_modules/
+apps/dashboard/.next/
+
+
+# Fichiers d'environnement locaux
+.env
+.env*.local
+
+# Base de données Prisma
+prisma/dev.db
+
+# Dépendances
+**/node_modules/
+node_modules/
+.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# Tests
+/coverage
+
+# Next.js
+.next/
+**/.next/
+/out/
+
+# Production
+/build
+
+# Fichiers et dossiers divers
+.DS_Store
+*.pem
+
+# Débogage
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Fichiers générés par Next.js et caches
+/.next/cache/
+# Ignorer les fichiers de cache
+.cache/
+.turbo/
