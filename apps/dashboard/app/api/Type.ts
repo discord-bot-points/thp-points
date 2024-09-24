@@ -10,6 +10,7 @@ export interface Transaction {
   }
 
 export interface User {
+    id: string;
     discordUsername: string;
     discordUserAvatar: string;
     pointsSent: number;

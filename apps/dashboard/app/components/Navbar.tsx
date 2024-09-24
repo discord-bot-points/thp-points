@@ -4,11 +4,13 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Thp from '/public/images/thp.png';
-import DiscordLogin from './DiscordLogin';
+import { useSession } from 'next-auth/react';
+import DiscordAuthButton from './DiscordAuthButton';
 
 const Navbar = () => {
   // État pour contrôler la visibilité du menu mobile
   const [isOpen, setIsOpen] = useState(false);
+  const { data: session } = useSession(); // Récupérer les données de session
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -29,10 +31,10 @@ const Navbar = () => {
             />
           </div>
         </Link>
-        <div className="hidden md:flex space-x-6">
+        <div className="hidden md:flex space-x-8 items-center">
           <Link
             href="/"
-            className="hover:text-gray-400 transition-colors duration-300 ml-4"
+            className="hover:text-gray-400 transition-colors duration-300 ml-8"
           >
             Accueil
           </Link>
@@ -48,8 +50,9 @@ const Navbar = () => {
           >
             Contact
           </Link>
+          {/* Afficher le bouton DiscordAuthButton uniquement si la session est active */}
         </div>
-          <DiscordLogin />
+          {session && <DiscordAuthButton />}
         {/* Menu mobile */}
         <button className="md:hidden flex items-center" onClick={toggleMenu}>
           <svg
@@ -92,6 +95,12 @@ const Navbar = () => {
           >
             Contact
           </Link>
+          {/* Ajouter le bouton DiscordAuthButton dans le menu mobile */}
+          {session && (
+            <div className="flex justify-center mt-4">
+              <DiscordAuthButton />
+            </div>
+          )}
         </div>
       </div>
     </nav>

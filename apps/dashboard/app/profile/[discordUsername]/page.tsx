@@ -4,6 +4,9 @@ import Image from "next/image";
 import Badge from "../../components/Badge"; // Assurez-vous que le chemin est correct
 import { FaLink } from 'react-icons/fa'; // Importer l'icône FaLink
 import Link from 'next/link';
+import { getServerSession } from "next-auth/next"; // Importer getServerSession
+import authOptions from '../../../lib/authOptions';
+import { redirect } from 'next/navigation';
 
 interface ProfileProps {
   params: {
@@ -29,6 +32,13 @@ async function fetchUserProfile(discordUsername: string) {
 }
 
 export default async function ProfilePage({ params }: ProfileProps) {
+  const session = await getServerSession(authOptions);
+
+  // Si la session n'existe pas, rediriger vers la page de login
+  if (!session) {
+    redirect('/login');
+  }
+
   const user = await fetchUserProfile(params.discordUsername);
 
   if (!user) {
@@ -123,8 +133,6 @@ export default async function ProfilePage({ params }: ProfileProps) {
       date: transaction.createdAt?.toLocaleDateString() || "Date non disponible",
     })),
   ];
-  
-  
 
   const detailedTransactionHeaders: { key: keyof (typeof detailedTransactionData)[0]; label: string }[] = [
     { key: "type", label: "Type" },
